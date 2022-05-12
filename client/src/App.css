@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,12 +20,15 @@ body {
   padding: .6rem;
   width: 10rem;
   background: #222;
-  border: none;
+  border: 1px solid white;
+  border-radius: 10px;
   color: #fff;
   font-size: 1.2rem;
   transition: all .5s;
   cursor: pointer;
-  text-transform: capitalize
+  text-transform: capitalize;
+
+ 
 }
 
 /***    Landing Page     ***/
@@ -117,10 +121,32 @@ input {
   background: #333;
   transition: all .5s
 }
+.foo{
+  background-color: 'white';
+}
 
 footer p {
   margin: 0;
-  font-size: .9rem
+  font-size: .9rem;
+  color:'white';
+  font-size: 14px;
+
+}
+.login-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 6px grey;
+ 
+  flex-direction: column;
+}
+.login{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /***    Register Page     ***/
@@ -139,4 +165,9 @@ form span {
 /***    Home Page     ***/
 .home-page-title {
   color: #222
+}
+.btn-Container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

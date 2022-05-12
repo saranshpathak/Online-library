@@ -19,7 +19,7 @@ export default function App() {
         <Router>
             <div>
             <Routes>
-          <Route exact path="/" element={<DashBoard/>} />
+          <Route exact path="/" element={<LandingPage/>} />
           <Route exact path="/login" element={<LoginPage/>} />
           <Route exact path="/register" element={<RegisterPage/>} />
           <Route exact path="/dashboard" element={<DashBoard/>} />

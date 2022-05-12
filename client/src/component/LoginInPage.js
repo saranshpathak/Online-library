@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 import '../App.css'
+import langingBG from '../assets/librarypic.jpg'
 
 export default function SignInPage() {
     const [email,setEmail] = useState();
@@ -29,8 +30,9 @@ export default function SignInPage() {
     }
 
     return (
-        <div className="text-center m-5-auto">
-            <h2>Sign in to us</h2>
+        <div className="login" style={HeaderStyle}>
+        <div className="login-container">
+            <h2 style={{color:'white'}}>Sign in to us</h2>
             <form action="/home">
                 <p>
                     <label>Username or email address</label><br/>
@@ -54,10 +56,19 @@ export default function SignInPage() {
                     <button id="sub_btn" type="submit" onClick={onSubmit}>Login</button>
                 </p>
             </form>
-            <footer>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
-                <p><Link to="/dashboard">Back to Homepage</Link>.</p>
+            <footer className='foo'>
+                <p >First time? <Link to="/register">Create an account</Link>.</p>
+                <p ><Link to="/dashboard">Back to Homepage</Link>.</p>
             </footer>
         </div>
+        </div>
     )
+}
+
+const HeaderStyle = {
+    width: "100%",
+    height: "100vh",
+    background:`url(${langingBG})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
 }

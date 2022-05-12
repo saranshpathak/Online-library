@@ -57,9 +57,9 @@ const DashBoard = () => {
        </div>
        </div>
        <div className="books-container">
-       {bookList && bookList.map((val, key) => {
+       {bookList && bookList.map((val) => {
           return (
-            <div className="book">
+            <div className="book" key={val.id}>
               <div>
                   <div className="book-template">
                       <img src="" alt="a book" />
