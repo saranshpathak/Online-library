@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import './Dashboard.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 const DashBoard = () => {
     const [name,setName]  = useState('');
@@ -11,6 +11,10 @@ const DashBoard = () => {
     const [id,setId] = useState(0);
     const [bookList,setBooklist] = useState('');
     const [newPrice,setNewPrice] = useState(0);
+    const [user, setUser]=useState(false);
+    const [edit, setEdit]=useState(false);
+
+    let navigate = useNavigate();
 
     useEffect(()=>{
       getBooks();
@@ -23,28 +27,18 @@ const DashBoard = () => {
       });
     };
   
-    const updateBook = (id) => {
-      axios.put("http://127.0.0.1:5000/api/update", { price: newPrice, id: id }).then(
-        (response) => {
-          setBooklist(
-            bookList.map((val) => {
-              return val.id == id
-                ? {
-                    id:val.id,
-                    name:val.name,
-                    author:val.author,
-                    price:newPrice,
+    const updateBook = (Name, Author, Price, Id) => {
 
-                  }
-                : val;
-            })
-          );
-        }
-      );
+      navigate('/edit', {state:{
+        name:Name,
+        author: Author,
+        price:Price,
+        id:Id
+      }});
+
     };
   
     const deleteBook = (id) => {
-      console.log(id)
       axios.delete(`http://127.0.0.1:5000/api/delete/${id}`).then((response) => {
         setBooklist(
            bookList.filter((val) => {
@@ -87,10 +81,9 @@ const DashBoard = () => {
                 /> */}
                 <button
                   onClick={() => {
-                    updateBook(val.id);
+                    updateBook(val.name, val.author, val.price, val.id);
                   }}
                 >
-                  {" "}
                   Update
                 </button>
 
@@ -107,6 +100,7 @@ const DashBoard = () => {
         })}
 
        </div>
+
         </div>
 
         </div>

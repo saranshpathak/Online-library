@@ -149,9 +149,11 @@ router.put("/update", (req, res) => {
   
   const {id, price} = req.body;
 
+  console.log(id, price);
+
   db.query(
-    "UPDATE employees SET wage = ? WHERE id = ?",
-    [wage, id],
+    "UPDATE books SET price = ? WHERE id = ?",
+    [price, id],
     (err, result) => {
       if (err) {
         console.log(err);
