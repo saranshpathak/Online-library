@@ -125,13 +125,13 @@ router.get("/books", (req, res) => {
 
 router.put("/update", (req, res) => {
   
-  const {id, price} = req.body;
+  const {id, price,name,author} = req.body;
 
   console.log(id, price);
 
   db.query(
-    "UPDATE books SET price = ? WHERE id = ?",
-    [price, id],
+    "UPDATE books SET price = ?,author = ?,name = ? WHERE id = ?",
+    [price,author,name ,id],
     (err, result) => {
       if (err) {
         console.log(err);

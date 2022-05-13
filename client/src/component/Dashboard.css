@@ -3,7 +3,7 @@
 }
 .dashboard{
     display: flex;
-    height: 100%;
+    height: 100vh;
     border: 2px solid black;
     background-color: #fff;
 }
@@ -12,5 +12,69 @@ button{
     padding: 5px;
     width: fit-content;
     color: white;
-    background-color: black;
+    background-color:rgb(66, 154, 209);
+    margin: 5px;
+    padding: 4px;
+    font-size: 14px;
+}
+button:hover{
+background-color: white;
+color: black;
+border-radius: 5px;
+margin: 6px;
+font-size: 16px;
+}
+.dashboard-Container{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin: 15px; */
+    padding: 10px;
+    background-color: rgba(12, 199, 232, 0.495);
+    height: max-content;
+    align-items: center;
+    position: sticky;
+}
+.header >p{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+#quote{
+    color:red;
+    font-style: italic;
+    font-size: larger;
+}
+.books-container{
+    display: flex;
+    height: 100vh;
+    background-color: rgb(242, 241, 239);
+    flex-wrap: wrap;
+}
+.book{
+    height: max-content;
+    width: 30vw;
+    margin: 10px;
+    padding: 10px;
+    /* border: 2px solid black; */
+    background-color: white;
+    align-items: center;
+    text-align: center;
+}
+.book:hover{
+    background-color: aliceblue;
+}
+.book-details>h3{
+    font-size: medium;
+    font-weight: 450;
+    margin: 5px;
+}
+.book-details>h3>span{
+    font-size: medium;
+    font-weight: 300;
 }

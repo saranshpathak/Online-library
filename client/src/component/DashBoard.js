@@ -5,14 +5,9 @@ import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 
 const DashBoard = () => {
-    const [name,setName]  = useState('');
-    const [price,setPrice] = useState(0);
-    const [author,setAuthor] =  useState('');
-    const [id,setId] = useState(0);
+   
     const [bookList,setBooklist] = useState('');
-    const [newPrice,setNewPrice] = useState(0);
-    const [user, setUser]=useState(false);
-    const [edit, setEdit]=useState(false);
+    
 
     let navigate = useNavigate();
 
@@ -51,9 +46,9 @@ const DashBoard = () => {
     <div className='dashboard'>
     <div className="dashboard-Container">
        <div className="header">
-       <p>Welcome to Online Library:Books from anywhere</p>
-       <div className="adduser">
-         <Link to="/add"> Add New Book </Link>
+       <p>Welcome to <span id="title">Online Library</span>:<span id="quote">Books from anywhere</span></p>
+       <div className="adduserrr">
+         <Link to="/add"> <p>Add New Book</p> </Link>
        </div>
        </div>
        <div className="books-container">
@@ -62,23 +57,17 @@ const DashBoard = () => {
             <div className="book" key={val.id}>
               <div>
                   <div className="book-template">
-                      <img src="" alt="a book" />
+                      <img src="" alt="Image not Available" />
                   </div>
                <div className="book-details">
-               <h3>Name: {val.name}</h3>
-                <h3>Price: {val.price}</h3>
-                <h3>Author: {val.author}</h3>
+               <h3>Name: <span>{val.name}</span></h3>
+                <h3>Price: <span> {val.price}</span></h3>
+                <h3>Author: <span>{val.author}</span></h3>
                    </div> 
                
               </div>
               <div>
-                {/* <input
-                  type="text"
-                  placeholder="2000..."
-                  onChange={(event) => {
-                    setNewWage(event.target.value);
-                  }}
-                /> */}
+               
                 <button
                   onClick={() => {
                     updateBook(val.name, val.author, val.price, val.id);

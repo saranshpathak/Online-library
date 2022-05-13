@@ -76,7 +76,9 @@ right: 0;
 
 /***    Login Page     ***/
 h2 {
-  font-weight: 300
+  font-weight: 300;
+  margin-bottom: 5px;
+  
 }
 
 form {
@@ -190,4 +192,50 @@ align-items: center;
   height: 100vh;
   align-items: center;
   justify-content: center;
+}
+
+
+/**** Edit Book ****/
+.edit-container{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color:whitesmoke;
+  justify-content: center;
+  align-items: center;
+
+}
+.information{
+  height: max-content;
+  margin: 5px;
+  background-color:white;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px 15px 25px;
+}
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  
+}
+.main-container> label{
+ margin: 3px;
+}
+#edit-btn{
+  width: 100%;
+  height: max-content;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+#edit-btn:hover{
+  margin-top: 10px;
+background-color:green;
+color: white;
+font-size: 18px;
 }
