@@ -41,7 +41,8 @@ body {
   padding-top: 10rem;
   font-size: 5rem;
   font-family: 'Fascinate', cursive;
-  text-transform: uppercase
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .main-para {
@@ -84,14 +85,14 @@ form {
   border: 1px solid #ddd;
   border-radius: 2px;
   padding: 2rem;
-  margin: 2rem 0 1rem 0
+  margin: 1rem 0 1rem 0
 }
 
 form label {
   float: left;
   font-size: .9rem;
-  margin: 0;
-  padding: 0
+  margin: 5px;
+  padding: 4px
 }
 
 .right-label {
@@ -104,7 +105,8 @@ input {
   padding: .3rem;
   border-radius: 5px;
   outline: none;
-  border: none
+  border: none;
+  margin:2px
 }
 
 #sub_btn {
@@ -115,6 +117,7 @@ input {
   background: #222;
   color: #fff;
   border-radius: 3px;
+  margin-top: 15px;
 }
 
 #sub_btn:hover {
@@ -137,7 +140,7 @@ footer p {
   justify-content: center;
   align-items: center;
   box-shadow: 5px 6px grey;
- 
+ background-color: white;
   flex-direction: column;
 }
 .login{
@@ -147,6 +150,11 @@ footer p {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.login-container >h2{
+  color: black;
+  margin-top: 10px;
+  font-weight: 600;
 }
 
 /***    Register Page     ***/
@@ -170,4 +178,16 @@ form span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.register-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.register{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }

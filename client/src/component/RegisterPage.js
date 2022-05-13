@@ -9,7 +9,7 @@ export default function SignUpPage() {
         const[name,setName] = useState();
         const[email,setEmail] = useState();
         const[password,setPassword] = useState();
-        const[role,setRole] = useState();
+        const[role,setRole] = useState('reader');
         let navigate = useNavigate();
 
 
@@ -33,9 +33,10 @@ export default function SignUpPage() {
 
 
     return (
-        <div className="text-center m-5-auto">
+      <div className="register">
+        <div className="register-container">
             <h2>Join us</h2>
-            <h5>Create your personal account</h5>
+            <h5 >Create your personal account</h5>
             <form action="/home">
                 <p>
                     <label>Username</label><br/>
@@ -64,13 +65,10 @@ export default function SignUpPage() {
                 <div className="group">
           <div className="dropDown_container">
             <div className="dropDown_inner_container">
-              <h3>Choose a Storage Medium : </h3>
               <select className="dropDown_style" value={role} onChange={(event) => {
                         setRole(event.target.value);
                         }}>
-                <option className="dropDown_option_style" value="Not Selected">
-                  Not Selected
-                </option>
+                
                 <option className="dropDown_option_style" value="Database">
                   Reader
                 </option>
@@ -100,6 +98,7 @@ export default function SignUpPage() {
             <footer>
                 <p><Link to="/">Back to Homepage</Link>.</p>
             </footer>
+        </div>
         </div>
     )
 

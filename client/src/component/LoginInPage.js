@@ -32,7 +32,7 @@ export default function SignInPage() {
     return (
         <div className="login" style={HeaderStyle}>
         <div className="login-container">
-            <h2 style={{color:'white'}}>Sign in to us</h2>
+            <h2 style={{color:'black'}}>Sign in to us</h2>
             <form action="/home">
                 <p>
                     <label>Username or email address</label><br/>
@@ -58,7 +58,7 @@ export default function SignInPage() {
             </form>
             <footer className='foo'>
                 <p >First time? <Link to="/register">Create an account</Link>.</p>
-                <p ><Link to="/dashboard">Back to Homepage</Link>.</p>
+                <p ><Link to="/">Back to Homepage</Link>.</p>
             </footer>
         </div>
         </div>
