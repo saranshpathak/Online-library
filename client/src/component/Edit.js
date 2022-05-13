@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import '../App.css';
+import langingBG from '../assets/libPic2.jpg'
 function Edit() {
   const {
     state: { name, author, price, id },
@@ -20,7 +21,7 @@ function Edit() {
   };
 
   return (
-    <div className="edit-container">
+    <div className="edit-container" style={HeaderStyle}>
       <div className="information">
         <h2>Edit Your Book-{id}</h2>
        <div className="main-container">
@@ -53,5 +54,12 @@ function Edit() {
       </div>
     </div>
   );
+}
+const HeaderStyle = {
+  width: "100%",
+  height: "100vh",
+  background:`url(${langingBG})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover"
 }
 export default Edit;

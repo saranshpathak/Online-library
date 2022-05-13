@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import '../App.css'
-import langingBG from '../assets/librarypic.jpg'
+import langingBG from '../assets/libPic2.jpg'
 
 
 

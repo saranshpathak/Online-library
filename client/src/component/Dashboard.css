@@ -35,15 +35,17 @@ font-size: 16px;
     justify-content: space-between;
     /* margin: 15px; */
     padding: 10px;
-    background-color: rgba(12, 199, 232, 0.495);
+    background-color: rgba(14, 201, 234, 0.845);
     height: max-content;
     align-items: center;
     position: sticky;
+    width: 100vw;
 }
 .header >p{
     color: white;
     font-size: 20px;
     font-weight: 500;
+    width: 60vw;
 }
 #quote{
     color:red;
@@ -53,7 +55,7 @@ font-size: 16px;
 .books-container{
     display: flex;
     height: 100vh;
-    background-color: rgb(242, 241, 239);
+    /* background-color: rgb(242, 241, 239); */
     flex-wrap: wrap;
 }
 .book{
@@ -77,4 +79,12 @@ font-size: 16px;
 .book-details>h3>span{
     font-size: medium;
     font-weight: 300;
+}
+.header-right{
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    justify-content: space-around;
+    align-items: center;
+
 }

@@ -213,6 +213,11 @@ align-items: center;
   align-items: center;
   padding: 25px 15px 15px 25px;
 }
+.information >h2{
+  align-items: center;
+  text-align: center;
+  color: rgb(66, 154, 209);
+}
 .main-container{
   display: flex;
   justify-content: center;

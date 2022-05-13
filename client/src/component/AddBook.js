@@ -1,15 +1,16 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-
+import '../App.css';
+import langingBG from '../assets/libPic2.jpg'
 const AddBook = () => {
 
     let navigate = useNavigate();
 
     const [name,setName]  = useState('');
-    const [price,setPrice] = useState(0);
+    const [price,setPrice] = useState();
     const [author,setAuthor] =  useState('');
-    const [id,setId] = useState(0);
+    const [id,setId] = useState();
 
     const addBook = async(e) => {
 
@@ -28,9 +29,11 @@ const AddBook = () => {
 
 
   return (
-    <div>
+    <div className="edit-container" style={HeaderStyle}>
       <div className="information">
-        <label>Name :</label>
+        <h2>Add New Book</h2>
+       <div className="main-container">
+        <label>Name  </label>
         <input
           type="text"
           onChange={(event) => {
@@ -38,15 +41,7 @@ const AddBook = () => {
           }}
           value={name}
         />
-        <label>Author : </label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setAuthor(event.target.value);
-          }}
-          value={author}
-        />
-        <label>Price : </label>
+         <label>Price  </label>
         <input
           type="number"
           onChange={(event) => {
@@ -54,7 +49,15 @@ const AddBook = () => {
           }}
           value={price}
         />
-        <label>ID :</label>
+        <label>Author  </label>
+        <input
+          type="text"
+          onChange={(event) => {
+            setAuthor(event.target.value);
+          }}
+          value={author}
+        />
+         <label>Book Id  </label>
         <input
           type="text"
           onChange={(event) => {
@@ -62,10 +65,18 @@ const AddBook = () => {
           }}
           value={id}
         />
-        <button onClick={addBook}>Add Book </button>
+        </div>
+        <button id='edit-btn' onClick={addBook}>Add</button>
       </div>
     </div>
   );
 };
+const HeaderStyle = {
+  width: "100%",
+  height: "100vh",
+  background:`url(${langingBG})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover"
+}
 
 export default AddBook;
