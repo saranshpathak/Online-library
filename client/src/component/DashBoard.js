@@ -61,9 +61,9 @@ const DashBoard = () => {
        {user.role=="admin"?
        <div className="adduserrr">
          <Link to="/add"> <p>Add New Book</p> </Link>
-       </div>:<div className="logout-btn">
+       </div>:null}<div className="logout-btn">
        <button className="logout-btn" onClick={backToLogin}> LogOut</button>
-       </div>}
+       </div>
 
        </div>
        <div className="books-container">
