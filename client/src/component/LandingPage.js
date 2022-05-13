@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import BackgroundImage from '../assets/landing.jpg';
 import '../App.css'
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 export default function LandingPage() {
     return (
@@ -16,6 +18,7 @@ export default function LandingPage() {
                     <button className="primary-button" id="reg_btn"><span>register </span></button>
                 </Link>
             </div>
+            
         </header>
     )
 }

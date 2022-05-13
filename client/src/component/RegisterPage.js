@@ -27,8 +27,12 @@ export default function SignUpPage() {
                 "http://127.0.0.1:5000/api/register",
                 state,
                 config
-              );
-              console.log(data);
+              ).then(()=>{
+                navigate("/login");
+              }).catch((err)=>{
+                console.log(err);
+              })
+           
         }
 
 
@@ -69,10 +73,10 @@ export default function SignUpPage() {
                         setRole(event.target.value);
                         }}>
                 
-                <option className="dropDown_option_style" value="Database">
+                <option className="dropDown_option_style" value="Reader">
                   Reader
                 </option>
-                <option className="dropDown_option_style" value="Local File">
+                <option className="dropDown_option_style" value="Admin">
                   Admin
                 </option>
               </select>

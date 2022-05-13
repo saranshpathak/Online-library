@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { login } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import '../App.css'
 import langingBG from '../assets/librarypic.jpg'
 
+
+
 export default function SignInPage() {
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();
-
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
     const onSubmit = async (e)=>{
         e.preventDefault();
         const config = {
@@ -23,9 +29,18 @@ export default function SignInPage() {
             "http://127.0.0.1:5000/api/login",
             state,
             config
-          );
+          ).then((data)=>{
+              dispatch(login({
+                  name:data.data.user.name,
+                  role:data.data.user.role,
+              }));
+              navigate("/dashboard");
 
-          console.log(data);
+              console.log(data.data.user.role);
+          }).catch((err)=>{
+              console.log(err);
+          })
+
 
     }
 

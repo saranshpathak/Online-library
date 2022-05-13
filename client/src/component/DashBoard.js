@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react'
 import './Dashboard.css';
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
+import { logout, selectUser } from '../features/userSlice';
+import {useDispatch, useSelector} from "react-redux"
 
 const DashBoard = () => {
    
     const [bookList,setBooklist] = useState('');
-    
-
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
     let navigate = useNavigate();
 
     useEffect(()=>{
@@ -42,14 +44,27 @@ const DashBoard = () => {
         );
       });
     };
+    const backToLogin = (e)=>{
+      console.log('in-loggin');
+      e.preventDefault();
+     
+      dispatch(logout());
+      navigate("/");
+      
+
+    }
   return (
     <div className='dashboard'>
     <div className="dashboard-Container">
        <div className="header">
        <p>Welcome to <span id="title">Online Library</span>:<span id="quote">Books from anywhere</span></p>
+       {user.role=="admin"?
        <div className="adduserrr">
          <Link to="/add"> <p>Add New Book</p> </Link>
-       </div>
+       </div>:<div className="logout-btn">
+       <button className="logout-btn" onClick={backToLogin}> LogOut</button>
+       </div>}
+
        </div>
        <div className="books-container">
        {bookList && bookList.map((val) => {
@@ -66,30 +81,31 @@ const DashBoard = () => {
                    </div> 
                
               </div>
-              <div>
+              {user.role==="Admin"? <div>
                
-                <button
-                  onClick={() => {
-                    updateBook(val.name, val.author, val.price, val.id);
-                  }}
-                >
-                  Update
-                </button>
+               <button
+                 onClick={() => {
+                   updateBook(val.name, val.author, val.price, val.id);
+                 }}
+               >
+                 Update
+               </button>
 
-                <button
-                  onClick={() => {
-                    deleteBook(val.id);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
+               <button
+                 onClick={() => {
+                   deleteBook(val.id);
+                 }}
+               >
+                 Delete
+               </button>
+             </div>:null}
+             
             </div>
           );
         })}
 
        </div>
-
+        
         </div>
 
         </div>
