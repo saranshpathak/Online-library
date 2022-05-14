@@ -3,9 +3,11 @@ import "./Dashboard.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Searching, selectBook } from '../features/bookSlice';
 
 const Header = () => {
     const user = useSelector(selectUser);
+    
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const[searchInput,setSearchInput] = useState("");
@@ -16,6 +18,10 @@ const Header = () => {
 
     dispatch(logout());
     navigate("/");
+  }
+  const searchBtn =(e)=>{
+      e.preventDefault();
+      dispatch(Searching(searchInput))
   }
   return (
     <div className="header">
@@ -35,6 +41,7 @@ const Header = () => {
           value={searchInput}
           placeholder="Search Book Here"
         />
+        <button className="search" onClick={searchBtn}>search</button>
           </div>
           <div className="header-right">
          

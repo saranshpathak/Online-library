@@ -6,16 +6,17 @@ import { useNavigate } from "react-router-dom";
 import {  selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
+import { selectBook } from "../features/bookSlice";
 
 const DashBoard = () => {
   const [bookList, setBooklist] = useState("");
   const user = useSelector(selectUser);
-  
+  const book = useSelector(selectBook);
   let navigate = useNavigate();
 
   useEffect(() => {
     getBooks();
-  }, []);
+  }, [book]);
 
   const getBooks = () => {
     axios.get("http://127.0.0.1:5000/api/books").then((response) => {
@@ -50,7 +51,14 @@ const DashBoard = () => {
         <Header/>
         <div className="books-container" style={HeaderStyle}>
           {bookList &&
-            bookList.map((val) => {
+            bookList.filter((val)=>{
+              if(book==="" || book==undefined){
+                return val;
+              }
+              else if(val?.name?.toLowerCase().includes(book?.toLowerCase())){
+                return val
+              }
+            }).map((val) => {
               return (
                 <div className="book" key={val.id}>
                   <div>
@@ -92,6 +100,7 @@ const DashBoard = () => {
               );
             })}
         </div>
+        {book==""?"Empty hu null ni":book}
       </div>
     </div>
   );
