@@ -40,12 +40,14 @@ font-size: 16px;
     align-items: center;
     position: sticky;
     width: 100vw;
+    /* background-color:greenyellow; */
 }
-.header >p{
+
+.header-left >p{
     color: white;
     font-size: 20px;
     font-weight: 500;
-    width: 60vw;
+    width: 40vw;
 }
 #quote{
     color:red;
@@ -88,3 +90,19 @@ font-size: 16px;
     align-items: center;
 
 }
+.header-middle{
+    display: flex;
+    height: max-content;
+    width: max-content;
+    /* background-color: black; */
+    /* border: 2px solid black; */
+    border-radius: 5px;
+}
+input {
+    width: 25rem;
+    padding: .3rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin:2px
+  }

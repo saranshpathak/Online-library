@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import axios from "axios";
 import langingBG from '../assets/LibBG.jpg'
-import { Link, useNavigate } from "react-router-dom";
-import { logout, selectUser } from "../features/userSlice";
+import { useNavigate } from "react-router-dom";
+import {  selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "./Header";
 
 const DashBoard = () => {
   const [bookList, setBooklist] = useState("");
   const user = useSelector(selectUser);
-  const dispatch = useDispatch();
+  
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -42,39 +43,11 @@ const DashBoard = () => {
       );
     });
   };
-  const backToLogin = (e) => {
-    console.log("in-loggin");
-    e.preventDefault();
-
-    dispatch(logout());
-    navigate("/");
-  };
+ 
   return (
     <div className="dashboard" >
       <div className="dashboard-Container" >
-        <div className="header">
-          <p>
-            Welcome to <span id="title">Online Library</span>:
-            <span id="quote">Books from anywhere</span>
-          </p>
-          <div className="header-right">
-            {" "}
-            {user.role == "Admin" ? (
-              <div className="adduserrr">
-                <Link to="/add">
-                  {" "}
-                  <p>Add New Book</p>{" "}
-                </Link>
-              </div>
-            ) : null}
-            <div className="logout-btn">
-              <button className="logout-btn" onClick={backToLogin}>
-                {" "}
-                LogOut
-              </button>
-            </div>
-          </div>
-        </div>
+        <Header/>
         <div className="books-container" style={HeaderStyle}>
           {bookList &&
             bookList.map((val) => {
