@@ -12,7 +12,7 @@ export default function SignUpPage() {
         const[role,setRole] = useState('reader');
         let navigate = useNavigate();
 
-
+        const[err,setErr] = useState('');
         const onSubmit = async (e)=>{
             e.preventDefault();
             const config = {
@@ -30,7 +30,8 @@ export default function SignUpPage() {
               ).then(()=>{
                 navigate("/login");
               }).catch((err)=>{
-                window.alert('This Email is already taken');
+                setErr('This Email is already taken');
+              
               })
            
         }
@@ -99,11 +100,21 @@ export default function SignUpPage() {
                     <button id="sub_btn" type="submit" onClick={onSubmit}>Register</button>
                 </p>
             </form>
+            
             <footer>
-                <p><Link to="/">Back to Homepage</Link>.</p>
+              <p style={errstyle}>{err}</p>
+                <button id="sub_btn" style={{backgroundColor:"lightblue",width:"12vw"}} ><Link to="/login" style={{color:"white",fontSize:"18px",textDecoration:"none"}}>Login</Link></button>
             </footer>
         </div>
         </div>
     )
 
 }
+const errstyle={
+ fontSize:"16px",
+  color:"red",
+  fontweight:"400",
+  padding:"5px"
+  
+  }
+ 

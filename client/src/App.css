@@ -108,7 +108,8 @@ input {
   border-radius: 5px;
   outline: none;
   border: none;
-  margin:2px
+  margin:2px;
+  cursor: pointer;
 }
 
 #sub_btn {
@@ -124,7 +125,10 @@ input {
 
 #sub_btn:hover {
   background: #333;
-  transition: all .5s
+  transition: all 0.3s;
+  background-color: green;
+  color: white;
+  margin-bottom: 3px;
 }
 .foo{
   background-color: 'white';

@@ -39,8 +39,7 @@ export default function SignInPage() {
 
               console.log(data.data.user.role);
           }).catch((err)=>{
-              window.alert('Email Or Password Incorrect')
-              setError(err.message);
+              setError('Invalid Password or email');
           })
           if(data.status===200){window.alert('Logged-In')}
           
@@ -75,10 +74,10 @@ export default function SignInPage() {
                     <button id="sub_btn" type="submit" onClick={onSubmit}>Login</button>
                 </p>
             </form>
-            {error}
+          <p style={errstyle}>{error}</p>  
             <footer className='foo'>
                 <p >First time? <Link to="/register">Create an account</Link>.</p>
-                <p ><Link to="/">Back to Homepage</Link>.</p>
+                
             </footer>
         </div>
         </div>
@@ -91,4 +90,11 @@ const HeaderStyle = {
     background:`url(${langingBG})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
+}
+const errstyle={
+//margin:"5px",
+fontsize:"14px",
+color:"red",
+fontweight:"400"
+
 }
