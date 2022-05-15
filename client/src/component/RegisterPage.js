@@ -30,7 +30,7 @@ export default function SignUpPage() {
               ).then(()=>{
                 navigate("/login");
               }).catch((err)=>{
-                console.log(err);
+                window.alert('This Email is already taken');
               })
            
         }

@@ -14,6 +14,7 @@ export default function SignInPage() {
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();
     const dispatch = useDispatch();
+    const[error,setError] = useState('');
     let navigate = useNavigate();
     const onSubmit = async (e)=>{
         e.preventDefault();
@@ -38,8 +39,11 @@ export default function SignInPage() {
 
               console.log(data.data.user.role);
           }).catch((err)=>{
-              console.log(err);
+              window.alert('Email Or Password Incorrect')
+              setError(err.message);
           })
+          if(data.status===200){window.alert('Logged-In')}
+          
 
 
     }
@@ -71,6 +75,7 @@ export default function SignInPage() {
                     <button id="sub_btn" type="submit" onClick={onSubmit}>Login</button>
                 </p>
             </form>
+            {error}
             <footer className='foo'>
                 <p >First time? <Link to="/register">Create an account</Link>.</p>
                 <p ><Link to="/">Back to Homepage</Link>.</p>

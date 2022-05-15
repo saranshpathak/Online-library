@@ -62,8 +62,8 @@ router.post('/login', loginValidation, (req, res, next) => {
         });
       }
       if (!result.length) {
-        return res.status(401).send({
-          msg: 'Email or password is incorrect!'
+        return res.status(401).json({
+          message: "Email or password is incorrect!"
         });
       }
       // check password
@@ -73,21 +73,21 @@ router.post('/login', loginValidation, (req, res, next) => {
         (bErr, bResult) => {
           // wrong password
           if (bErr) {
-            throw bErr;
-            return res.status(401).send({
-              msg: 'Email or password is incorrect!'
+            //throw bErr;
+            return res.status(401).json({
+              message: 'Email or password is incorrect!'
             });
           }
           if (bResult) {
             const token = jwt.sign({email:result[0].email},'the-super-strong-secrect',{ expiresIn: '1h' });
-            return res.status(200).send({
-              msg: 'Logged in!',
+            return res.status(200).json({
+              message: 'Logged in!',
               token,
               user: result[0]
             });
           }
-          return res.status(401).send({
-            msg: 'Username or password is incorrect!'
+          return res.status(401).json({
+            message: 'Username or password is incorrect!'
           });
         }
       );

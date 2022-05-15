@@ -29,7 +29,7 @@ export default function App() {
             <Routes>
           <Route exact path="/" element={<LandingPage/>} />
           <Route exact path="/login" element={<LoginPage/>} />
-          <Route exact path="/register" element={<PrivateRoute><RegisterPage/></PrivateRoute>} />
+          <Route exact path="/register" element={<RegisterPage/>} />
           <Route exact path="/dashboard" element={<PrivateRoute><DashBoard/></PrivateRoute>} />
           <Route exact path="/add" element={<PrivateRoute><AddBook/></PrivateRoute>} />
           <Route exact path="/edit" element={<PrivateRoute><Edit/></PrivateRoute> }/>
